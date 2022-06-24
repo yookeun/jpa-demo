@@ -19,20 +19,19 @@ public class MemberController {
         return memberService.save(memberDto);
     }
 
-    @PutMapping("/{id}")
-    public MemberDto update(@PathVariable(name = "id") Long id, @RequestBody @Valid MemberDto memberDto) {
-        memberDto.setMemberId(id);
+    @PutMapping("/{memberId}")
+    public MemberDto update(@PathVariable Long memberId, @RequestBody @Valid MemberDto memberDto) {
+        memberDto.setMemberId(memberId);
         return memberService.update(memberDto);
     }
 
-    @GetMapping("/{id}")
-    public MemberDto getOne(@PathVariable(name = "id") Long id) {
-        return memberService.getOne(id);
+    @GetMapping("/{memberId}")
+    public MemberDto getOne(@PathVariable Long memberId) {
+        return memberService.getOne(memberId);
     }
 
-    @DeleteMapping
-    public void delete(@RequestParam(name = "id") Long id) {
-        MemberDto memberDto = MemberDto.builder().memberId(id).build();
-        memberService.delete(memberDto);
+    @DeleteMapping("/{memberId}")
+    public void delete(@PathVariable Long memberId) {
+        memberService.delete(memberId);
     }
 }

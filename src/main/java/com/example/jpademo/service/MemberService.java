@@ -28,17 +28,17 @@ public class MemberService {
         return MemberDto.of(findMember);
     }
 
-    public MemberDto getOne(Long id) {
+    public MemberDto getOne(Long memberId) {
         Member findMember = memberRepository
-                .findById(id)
+                .findById(memberId)
                 .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 ID"));
         return MemberDto.of(findMember);
     }
 
     @Transactional
-    public void delete(MemberDto memberDto) {
+    public void delete(Long memberId) {
         Member findMember = memberRepository
-                .findById(memberDto.getMemberId())
+                .findById(memberId)
                 .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 ID"));
         memberRepository.delete(findMember);
     }

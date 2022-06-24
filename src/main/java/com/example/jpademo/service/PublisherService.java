@@ -36,9 +36,9 @@ public class PublisherService {
         return PublisherDto.of(publisher);
     }
 
-    public PublisherDto getOne(Long publiserId) {
+    public PublisherDto getOne(Long publisherId) {
         Publisher publisher = publisherRepository
-                .findById(publiserId)
+                .findById(publisherId)
                 .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 ID"));
         return PublisherDto.of(publisher);
     }
@@ -48,6 +48,14 @@ public class PublisherService {
         return publishers.stream()
                 .map(publisher -> PublisherDto.of(publisher))
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void delete(Long publisherId) {
+        Publisher publisher = publisherRepository
+                .findById(publisherId)
+                .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 ID"));
+        publisherRepository.delete(publisher);
     }
 
 }

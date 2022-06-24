@@ -37,4 +37,9 @@ public class PublisherController {
         return publisherService.getList();
     }
 
+    @DeleteMapping("/{publisherId}")
+    public void delete(@PathVariable Long publisherId) {
+        publisherService.delete(publisherId);
+    }
+
 }
