@@ -32,7 +32,6 @@ public class Publisher extends BaseEntity {
 
 
     public void addBooks(List<BookDto> bookDtos) {
-        if (!books.isEmpty()) books.clear();
         bookDtos.forEach(bookDto -> {
             bookDto.setPublisher(this);
             books.add(bookDto.toEntity());

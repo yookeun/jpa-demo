@@ -29,7 +29,7 @@ public class PublisherService {
         Publisher publisher = publisherRepository
                 .findById(publisherDto.getPublisherId())
                 .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 ID"));
-
+        publisher.getBooks().clear();
         publisher.addBooks(publisherDto.getBookDtos());
         publisher.update(publisherDto);
         publisherRepository.flush();
