@@ -1,0 +1,19 @@
+[
+  {
+    "itemName": "자바책",
+    "itemType": "BOOK"
+  },
+  {
+    "itemName": "진공청소기",
+    "itemType": "ELECTRONIC"
+  },
+  {
+    "itemName": "소고기",
+    "itemType": "FOOD"
+  },
+  {
+    "itemName": "점퍼",
+    "itemType": "DRESS"
+  }
+]
+

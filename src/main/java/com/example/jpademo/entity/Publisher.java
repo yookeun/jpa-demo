@@ -47,7 +47,7 @@ public class Publisher extends BaseEntity {
                 .price(book.getPrice())
                 .state(book.getState())
                 .publisherId(book.getPublisher().getPublisherId())
-                .build())
+                 .build())
                 .collect(Collectors.toList());
     }
 

@@ -3,18 +3,17 @@
   "bookDtos": [
     {
       "title": "책1",
-      "isbn": "012345",
+      "isbn": "11111",
       "author": "김작가",
       "price": 1000,
       "state": "SELL"
     },
     {
       "title": "책2",
-      "isbn": "112345",
+      "isbn": "11112",
       "author": "박작가",
       "price": 1100,
       "state": "SELL"
     }
   ]
-
 }

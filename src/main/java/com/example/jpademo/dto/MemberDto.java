@@ -5,6 +5,8 @@ import com.example.jpademo.entity.Member;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -18,6 +20,10 @@ public class MemberDto {
     @NotBlank(message = "userName 필수입력")
     private String userName;
 
+    @Builder.Default
+    private List<ItemDto> itemDtos = new ArrayList<>();
+
+
     public Member toEntity() {
         return Member.builder()
                 .userId(userId)
@@ -30,6 +36,7 @@ public class MemberDto {
                 .memberId(member.getMemberId())
                 .userId(member.getUserId())
                 .userName(member.getUserName())
+                .itemDtos(member.getItemDtos())
                 .build();
     }
 }

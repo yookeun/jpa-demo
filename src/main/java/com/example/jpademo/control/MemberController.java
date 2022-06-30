@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/member")
@@ -33,5 +34,15 @@ public class MemberController {
     @DeleteMapping("/{memberId}")
     public void delete(@PathVariable Long memberId) {
         memberService.delete(memberId);
+    }
+
+    @PostMapping("/{memberId}/items")
+    public MemberDto addItem(@PathVariable Long memberId, @RequestParam Long[] itemIds) {
+        return memberService.addItem(memberId, itemIds);
+    }
+
+    @GetMapping
+    public List<MemberDto> getList() {
+        return memberService.getList();
     }
 }

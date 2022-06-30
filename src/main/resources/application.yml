@@ -23,4 +23,4 @@ spring:
 logging:
   level:
     #org.hibernate.SQL: debug    # Logger
-    org.hibernate.type: trace   # Show Query Parameter
+    org.hibernate.type: error   # Show Query Parameter

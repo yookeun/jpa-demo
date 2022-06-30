@@ -38,6 +38,13 @@ dependencies {
     annotationProcessor("jakarta.annotation:jakarta.annotation-api") // java.lang.NoClassDefFoundError (javax.annotation.Generated) 발생 대응
 }
 
+
+/** clean 태스크 실행시 QClass 삭제 */
+clean {
+    delete file('src/main/generated') // 인텔리제이 Annotation processor 생성물 생성위치
+}
+
+
 tasks.named('test') {
     useJUnitPlatform()
 }
