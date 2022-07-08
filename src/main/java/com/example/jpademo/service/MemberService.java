@@ -66,7 +66,7 @@ public class MemberService {
     public List<MemberDto> getList() {
         return memberRepository.findAll()
                 .stream()
-                .map(member -> MemberDto.of(member))
+                .map(MemberDto::of)
                 .collect(Collectors.toList());
     }
 }

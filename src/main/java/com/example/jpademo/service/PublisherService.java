@@ -46,7 +46,7 @@ public class PublisherService {
     public List<PublisherDto> getList() {
         List<Publisher> publishers = publisherRepository.findAll();
         return publishers.stream()
-                .map(publisher -> PublisherDto.of(publisher))
+                .map(PublisherDto::of)
                 .collect(Collectors.toList());
     }
 

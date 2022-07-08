@@ -18,17 +18,17 @@ public class ItemService {
 
     @Transactional
     public List<ItemDto> saveAll(List<ItemDto> itemDtos) {
-        List<Item> items = itemDtos.stream().map(itemDto -> itemDto.toEntity()).collect(Collectors.toList());
+        List<Item> items = itemDtos.stream().map(ItemDto::toEntity).collect(Collectors.toList());
         return itemRepository.saveAll(items)
                 .stream()
-                .map(item -> ItemDto.of(item))
+                .map(ItemDto::of)
                 .collect(Collectors.toList());
     }
 
     public List<ItemDto> getList() {
         List<Item> items = itemRepository.findAll();
         return items.stream()
-                .map(item -> ItemDto.of(item))
+                .map(ItemDto::of)
                 .collect(Collectors.toList());
     }
 
