@@ -24,6 +24,8 @@ public class QItem extends EntityPathBase<Item> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createDate = _super.createDate;
 
+    public final StringPath deleteYn = createString("deleteYn");
+
     public final NumberPath<Long> itemId = createNumber("itemId", Long.class);
 
     public final StringPath itemName = createString("itemName");

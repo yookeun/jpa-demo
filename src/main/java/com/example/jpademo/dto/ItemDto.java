@@ -2,10 +2,7 @@ package com.example.jpademo.dto;
 
 import com.example.jpademo.code.ItemType;
 import com.example.jpademo.entity.Item;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -14,6 +11,7 @@ import javax.validation.constraints.NotNull;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class ItemDto {
     private Long itemId;
     
@@ -23,8 +21,11 @@ public class ItemDto {
     @NotNull(message = "필수입력")
     private ItemType itemType;
 
+    private String reason;
+
     public Item toEntity() {
         return Item.builder()
+                .itemId(itemId)
                 .itemName(itemName)
                 .itemType(itemType)
                 .build();

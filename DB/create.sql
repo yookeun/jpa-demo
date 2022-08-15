@@ -42,8 +42,9 @@ CREATE TABLE `member`
 CREATE TABLE `item`
 (
     `item_id`     bigint    NOT NULL AUTO_INCREMENT,
-    `item_name`   varchar(50)                            DEFAULT NULL,
+    `item_name`   varchar(20)                            DEFAULT NULL,
     `item_type`   varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+    `delete_yn`   char(1) NOT NULL DEFAULT 'N',
     `create_date` timestamp NULL                         DEFAULT NULL,
     `update_date` timestamp NULL                         DEFAULT NULL,
     PRIMARY KEY (`item_id`)
@@ -60,5 +61,16 @@ CREATE TABLE `my_item`
 
 
 
+CREATE TABLE `item_backup`
+(
+    `item_backup_id` bigint    NOT NULL AUTO_INCREMENT,
+    `item_id`     bigint    NOT NULL,
+    `item_name`   varchar(50)                            DEFAULT NULL,
+    `item_type`   varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+    `reason`      varchar(10) DEFAULT NULL,
+    `create_date` timestamp NULL                         DEFAULT NULL,
+    `update_date` timestamp NULL                         DEFAULT NULL,
+    PRIMARY KEY (`item_backup_id`)
+) ENGINE = InnoDB;
 
 
